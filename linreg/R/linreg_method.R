@@ -28,9 +28,10 @@ resid.linreg <- function(x, ...){
     return(res)
 }
 
-#???
-pred.linreg <- function(x, ...){
-    return(fit)
+
+predict.linreg <- function(x, ...){
+   return(x$fitted)
+  
 }
 
 coef.linreg <- function(x, ...){
