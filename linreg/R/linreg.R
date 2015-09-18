@@ -24,6 +24,7 @@ y <- as.matrix(faithful[,1, drop = FALSE])
 # http://stackoverflow.com/questions/13223846/ggplot2-two-line-label-with-expression
 #to make 2 lines
 plot.linreg <- function(x, ...){
+
 ggplot(data=x$fit.res,aes(x=fit,y=res))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab("residuals") + ggtitle("Residuals vs. Fitted")

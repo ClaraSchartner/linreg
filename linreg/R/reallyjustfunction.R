@@ -55,7 +55,7 @@ linreg <- function(formula, data){
   ##can't check the answer but i think the code is quite correct
   pval <- 2*pt(-abs(tval), df)
   
-  a <- list(coefficients = beta, fitted = fit, residuals = res, varres = var_res, varcoeff = var_coeff, tvalues = tval, pvalues = pval, df = df)
+  a <- list(coefficients = beta, fitted = fit, residuals = res, varres = var_res, varcoeff = var_coeff, tvalues = tval, pvalues = pval, df = df, fit.res=fit.res)
   a$call <- match.call()
   class(a) <- "linreg"
   return(a)    
