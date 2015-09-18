@@ -1,1 +1,1 @@
-# linreg
+# R lab 4
