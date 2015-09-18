@@ -51,8 +51,7 @@ linreg <- function(formula, data){
     tval <- c(tval, beta[i] / sqrt(var_coeff[i]))
   }
   
-  #p-value -> use pt()
-  ##can't check the answer but i think the code is quite correct
+  #p-value
   pval <- 2*pt(-abs(tval), df)
   
   a <- list(coefficients = beta, fitted = fit, residuals = res, varres = var_res, varcoeff = var_coeff, tvalues = tval, pvalues = pval, df = df, fit.res=fit.res)
