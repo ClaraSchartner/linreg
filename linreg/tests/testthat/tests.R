@@ -14,3 +14,12 @@ lin.iris<-  linreg(Sepal.Length~Sepal.Width+Petal.Length^2,iris)
 test_that("cubic is correct",{
 expect_less_than(sum(as.numeric(unlist(lm.iris[[1]]))-as.numeric(unlist(lin.iris[[1]]))),0.001)
 })
+
+test_that("not correct class",{
+  expect_identical(class(lin.iris),"linreg")
+})
+
+r<-plot(lin.iris)
+test_that("not ggplot",{
+  expect_identical(class(r),c("gg","ggplot"))
+})
