@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-The package `linreg` includes a function for linear regression. 
+The package `linreg` includes a function `linreg_function` for linear regression. 
 
 ## Background
 The linear model:
@@ -29,7 +29,7 @@ data("faithful")
 By using the function `linreg` a linear model is calculated.
 
 ```{r}
-lin.result<-linreg(waiting~eruptions,faithful)
+lin.result<-linreg_function(waiting~eruptions,faithful)
 lin.result
 ```
 In the output the results of the coeffients is shown together with the input formula.
