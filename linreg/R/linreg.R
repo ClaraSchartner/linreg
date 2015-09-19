@@ -1,5 +1,5 @@
-linreg <- function(formula, data){
-  library(ggplot2)
+
+testthisfunction <- function(formula, data){
   X <- model.matrix(formula, data)
   y <- as.matrix(data[all.vars(formula)[!(all.vars(formula) %in% colnames(X))]])
   stopifnot(is.numeric(y)&is.numeric(X))

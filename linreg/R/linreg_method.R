@@ -2,6 +2,8 @@ linreg <- function(x, ...){
     UseMethod("linreg")
 }
 
+
+  library(ggplot2)
 print.linreg <- function(x, ...){
     cat("Call:\n")
     print(x$call)
