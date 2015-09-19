@@ -19,9 +19,9 @@ plot.linreg <- function(x, ...){
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab("residuals") + ggtitle("Residuals vs. Fitted")
     
-    ggplot(data=x$fit.res,aes(x=fit,y=sqrt(abs(res))))+geom_point()+
+    ggplot(data=x$fit.res,aes(x=fit,y=sqrt(sqrt(abs(res)))))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
-    xlab(x$call) + ylab(expression(paste(sqrt("Standardized residuals")))) + ggtitle("Scale−Location")
+    xlab(x$call) + ylab(expression(paste(sqrt(abs("Standardized residuals"))))) + ggtitle("Scale Location")
 }
 
 resid.linreg <- function(x, ...){
@@ -30,7 +30,6 @@ resid.linreg <- function(x, ...){
 
 predict.linreg <- function(x, ...){
    return(x$fitted)
-  
 }
 
 coef.linreg <- function(x, ...){
