@@ -1,8 +1,6 @@
 linreg <- function(x, ...){
     UseMethod("linreg")
 }
-
-
   
 print.linreg <- function(x, ...){
     cat("Call:\n")
@@ -14,17 +12,21 @@ print.linreg <- function(x, ...){
 linreg <- structure(list(), class = "linreg")
 
 #xlab is missing:fitted values 
-# http://stackoverflow.com/questions/13223846/ggplot2-two-line-label-with-expression
-#to make 2 lines
 plot.linreg <- function(x, ...){
-  library(ggplot2)
-    ggplot(data=x$fit.res,aes(x=fit,y=res))+geom_point()+
+    library(ggplot2)
+    devAskNewPage(ask = TRUE)
+    
+    one <- ggplot(data=x$fit.res,aes(x=fit,y=res))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab("residuals") + ggtitle("Residuals vs. Fitted")
     
-    ggplot(data=x$fit.res,aes(x=fit,y=sqrt(sqrt(abs(res)))))+geom_point()+
+    two <- ggplot(data=x$fit.res,aes(x=fit,y=sqrt(sqrt(abs(res)))))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab(expression(paste(sqrt(abs("Standardized residuals"))))) + ggtitle("Scale Location")
+    
+    print(one)
+    print(two)
+    on.exit(devAskNewPage(FALSE))
 }
 
 resid.linreg <- function(x, ...){
@@ -50,5 +52,3 @@ summary.linreg <- function(x, ...){
     sd_res <- sqrt(x$varres)
     cat(sd_res, "on", x$df, "degree of freedom")
 }
-
-
