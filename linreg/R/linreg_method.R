@@ -18,6 +18,8 @@ linreg <- structure(list(), class = "linreg")
 #to make 2 lines
 plot.linreg <- function(x, ...){
   library(ggplot2)
+  devAskNewPage(TRUE)
+  on.exit(devAskNewPage(FALSE))
     ggplot(data=x$fit.res,aes(x=fit,y=res))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab("residuals") + ggtitle("Residuals vs. Fitted")
@@ -25,7 +27,8 @@ plot.linreg <- function(x, ...){
     ggplot(data=x$fit.res,aes(x=fit,y=sqrt(sqrt(abs(res)))))+geom_point()+
     geom_smooth(method = "loess", formula = y ~ x,se=FALSE, colour = "red") + 
     xlab(x$call) + ylab(expression(paste(sqrt(abs("Standardized residuals"))))) + ggtitle("Scale Location")
-}
+   
+    }
 
 resid.linreg <- function(x, ...){
     return(x$residuals)
