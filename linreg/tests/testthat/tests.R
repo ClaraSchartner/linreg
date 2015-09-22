@@ -18,8 +18,3 @@ expect_less_than(sum(as.numeric(unlist(lm.iris[[1]]))-as.numeric(unlist(lin.iris
 test_that("not correct class",{
   expect_identical(class(lin.iris),"linreg")
 })
-
-r<-plot(lin.iris)
-test_that("not ggplot",{
-  expect_identical(class(r),c("gg","ggplot"))
-})
