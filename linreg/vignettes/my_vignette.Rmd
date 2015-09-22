@@ -15,8 +15,6 @@ The package `linreg` includes a function `linreg_function` for linear regression
 The linear model:
 $Y = X\beta + \epsilon$
 
-The regression coefficient $\beta$ is calculated according to the method of the least squares.
-$\hat{\beta} = (X´X)^{-1}X´X$
 
 ## Functions
 
